@@ -5,6 +5,7 @@ pipeline {
         stage('Build and deploy') {
             steps {
                 sh 'ls'
+                sh 'whoami'
                 sh 'docker build -t nodejs:latest .'
                 sh 'docker stop nodejs'
                 sh 'docker run --name nodejs -p 80:3000 nodejs:latest'
