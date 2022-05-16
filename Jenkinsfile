@@ -1,12 +1,16 @@
 pipeline {
     agent any
     
+    tools {
+    nodejs 'nodejs'
+  }
+    
     stage('SonarQube analysis') {
       steps {
         script {
           def scannerHome = tool 'sonarscan';
           withSonarQubeEnv('sonar-local') {
-            sh "${tool("sonarscan ")}/bin/sonar-scanner -Dsonar.projectKey=reactapp -Dsonar.projectName=reactapp"
+            sh "${tool("sonarscan ")}/bin/sonar-scanner -Dsonar.projectKey=reactapp -Dsonar.projectName=nodejs"
           }
         }
       }
