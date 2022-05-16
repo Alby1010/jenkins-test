@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     
-    
+    stages {
     stage('SonarQube analysis') {
       steps {
         script {
@@ -14,7 +14,7 @@ pipeline {
       }
     }
 
-    stages {
+    
         stage('Build and deploy') {
             steps {
                 sh 'ls'
